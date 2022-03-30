@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestControllerAdvice
+@RestController
 @RequestMapping("/posts")
 public class PostController {
 
