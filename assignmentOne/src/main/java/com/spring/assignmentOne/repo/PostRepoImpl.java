@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class PostRepoImpl implements PostRepo{
@@ -26,6 +27,14 @@ public class PostRepoImpl implements PostRepo{
     public List<Post> getAll(){
         System.out.println(postList);
         return postList;
+    }
+
+    @Override
+    public Post getById(int id){
+        return postList.stream()
+                .filter(eachPost -> eachPost.getId() == id)
+                .findAny()
+                .orElse(null);
     }
 }
 

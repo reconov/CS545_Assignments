@@ -19,7 +19,7 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Post getById(){
-        return "hellow M!? ";
+    public Post getById(int id){
+        return postRepo.getById(id);
     }
 }

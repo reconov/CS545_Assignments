@@ -15,12 +15,9 @@ public class PostController {
     PostService postService;
 
     @GetMapping("/{id}")
-    public Post getPostById(@RequestParam int id){
+    public Post getPostById(@PathVariable int id){
         System.out.println("Get post by id was excuted");
-        // make use of the stream apidk
-//        return "" + id;
-//        return postService;
-        return null;
+        return postService.getById(id);
     }
 
     @GetMapping("/")
@@ -28,4 +25,6 @@ public class PostController {
         System.out.println("All posts was excuted");
         return postService.getAll();
     }
+
+    @PostMapping()
 }

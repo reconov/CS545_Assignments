@@ -8,4 +8,5 @@ public interface PostRepo {
 
     public List<Post> getAll();
 
+    public Post getById(int id);
 }
