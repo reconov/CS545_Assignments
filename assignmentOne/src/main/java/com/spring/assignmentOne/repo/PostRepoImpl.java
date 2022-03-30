@@ -36,5 +36,18 @@ public class PostRepoImpl implements PostRepo{
                 .findAny()
                 .orElse(null);
     }
+
+    @Override
+    public boolean save(Post p){
+        return postList.add(p);
+    }
+
+    @Override
+    public void delete(int id){
+        List<Post> temp = postList;
+        postList = temp.stream()
+                .filter(eachPost -> eachPost.getId() != id)
+                .collect(Collectors.toList());
+    }
 }
 

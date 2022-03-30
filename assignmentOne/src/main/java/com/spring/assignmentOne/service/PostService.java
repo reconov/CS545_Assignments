@@ -9,4 +9,6 @@ public interface PostService {
     List<Post> getAll();
 
     Post getById(int id);
+
+    boolean save(Post p);
 }

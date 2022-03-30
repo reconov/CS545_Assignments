@@ -6,7 +6,13 @@ import java.util.List;
 
 public interface PostRepo {
 
-    public List<Post> getAll();
+    List<Post> getAll();
 
-    public Post getById(int id);
+    Post getById(int id);
+
+    boolean save(Post p);
+
+    void delete(int id);
+
+    void update(int id);
 }

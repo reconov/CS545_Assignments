@@ -22,4 +22,9 @@ public class PostServiceImpl implements PostService{
     public Post getById(int id){
         return postRepo.getById(id);
     }
+
+    @Override
+    public boolean save(Post p){
+       return postRepo.save(p);
+    }
 }

@@ -27,4 +27,9 @@ public class PostController {
     }
 
     @PostMapping()
+    public boolean newPost(@RequestBody Post newPost){
+        return postService.save(newPost);
+    }
+
+    @
 }
