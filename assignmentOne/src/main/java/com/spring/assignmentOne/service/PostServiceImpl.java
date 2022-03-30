@@ -17,4 +17,9 @@ public class PostServiceImpl implements PostService{
     public List<Post> getAll(){
         return postRepo.getAll();
     }
+
+    @Override
+    public Post getById(){
+        return "hellow M!? ";
+    }
 }
