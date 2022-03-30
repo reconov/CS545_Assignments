@@ -49,5 +49,10 @@ public class PostRepoImpl implements PostRepo{
                 .filter(eachPost -> eachPost.getId() != id)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void update(int id) { // also accept the post object here
+        // some implementaions
+    }
 }
 

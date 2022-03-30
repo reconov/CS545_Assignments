@@ -11,4 +11,8 @@ public interface PostService {
     Post getById(int id);
 
     boolean save(Post p);
+
+    void deleteById(int id);
+
+    void updateById(int id);
 }

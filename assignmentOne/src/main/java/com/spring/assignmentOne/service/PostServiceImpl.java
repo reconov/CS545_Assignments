@@ -27,4 +27,14 @@ public class PostServiceImpl implements PostService{
     public boolean save(Post p){
        return postRepo.save(p);
     }
+
+    @Override
+    public void updateById(int id){
+        postRepo.update(id);
+    }
+
+    @Override
+    public void deleteById(int id){
+        postRepo.delete(id);
+    }
 }

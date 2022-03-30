@@ -31,5 +31,8 @@ public class PostController {
         return postService.save(newPost);
     }
 
-    @
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+        postService.deleteById(id);
+    }
 }
