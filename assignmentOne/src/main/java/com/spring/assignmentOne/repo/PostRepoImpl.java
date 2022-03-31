@@ -1,6 +1,7 @@
 package com.spring.assignmentOne.repo;
 
 import com.spring.assignmentOne.domain.Post;
+import com.spring.assignmentOne.domain.dto.PostDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

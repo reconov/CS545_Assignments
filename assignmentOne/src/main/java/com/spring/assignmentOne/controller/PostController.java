@@ -1,6 +1,7 @@
 package com.spring.assignmentOne.controller;
 
 import com.spring.assignmentOne.domain.Post;
+import com.spring.assignmentOne.domain.dto.PostDto;
 import com.spring.assignmentOne.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class PostController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/")
-    public List<Post> allPostDefault(){ // default( without header redirect to V1)
+    public List<Post> allPostDefault(){ // default -> redirect to V1 ( empty header )
         return allPostsV1();
     }
 
@@ -35,13 +36,18 @@ public class PostController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping( value = "/", headers = "X-API-VERSION=2")
-    public void allPostsV2(){
-        System.out.println("Version 2 all posts has been requested");
+    public List<PostDto> allPostsV2(){
+        return postService.getAllDto();
     }
 
     @GetMapping(value = "/{id}")
     public Post getPostById(@PathVariable int id){
         return postService.getById(id);
+    }
+
+    @GetMapping( value = "/{id}", headers = "X-API-VERSION=2")
+    public PostDto getPostByIdDto(@PathVariable int id){
+        return postService.getByIdDto(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
