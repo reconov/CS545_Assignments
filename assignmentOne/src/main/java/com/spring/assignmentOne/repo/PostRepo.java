@@ -14,5 +14,5 @@ public interface PostRepo {
 
     void delete(int id);
 
-    void update(int id);
+    void update(int id, Post p);
 }

@@ -29,8 +29,8 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public void updateById(int id){
-        postRepo.update(id);
+    public void updateById(int id, Post p){
+        postRepo.update(id, p);
     }
 
     @Override

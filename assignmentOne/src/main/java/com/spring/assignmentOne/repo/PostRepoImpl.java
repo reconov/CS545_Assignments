@@ -51,8 +51,8 @@ public class PostRepoImpl implements PostRepo{
     }
 
     @Override
-    public void update(int id) { // also accept the post object here
-        // some implementaions
+    public void update(int id, Post p) {
+        int index = postList.indexOf(postList.stream().filter(eachP -> eachP.getId() == id).findFirst().orElse(null));
+        postList.set(index, p);
     }
 }
-

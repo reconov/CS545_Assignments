@@ -15,6 +15,8 @@ public class PostController {
     @Autowired
     PostService postService;
 
+    Post post;
+
     @GetMapping("/{id}")
     public Post getPostById(@PathVariable int id){
         System.out.println("Get post by id was excuted");
@@ -35,8 +37,12 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public void updatePost(@PathVariable int id){
+    @ResponseStatus(HttpStatus.OK)
+    public void updatePost(@PathVariable int id, @RequestBody Post post){
         System.out.println("Update request has been made for record with id : " + id);
+        System.out.println("Request body : ");
+        System.out.println(post);
+        postService.updateById(id, post);
     }
 
     @DeleteMapping("/{id}")
