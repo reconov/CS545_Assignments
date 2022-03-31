@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: Lab2
+  datasource:
+    password: posgres
+    url: jdbc:postgresql://localhost:1234/lab2-data
+    username: posgres
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgresSQLDialect
+        format_sql: true
+    show_sql: true
+    defer-datasource-initialization: true
+    generate-ddl: true
+  sql:
+    init:
+      mode: always
+server:
+  port: 4000
