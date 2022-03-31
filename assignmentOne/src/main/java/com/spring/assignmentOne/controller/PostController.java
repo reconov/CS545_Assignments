@@ -50,11 +50,11 @@ public class PostController {
         return postService.findByIdDto(id);
     }
 
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @PostMapping(value = "")
-//    public boolean newPost(@RequestBody Post newPost){
-//        return postService.save(newPost);
-//    }
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "")
+    public void newPost(@RequestBody Post newPost){
+        postService.save(newPost);
+    }
 
 //    @PutMapping(value = "/{id}")
 //    @ResponseStatus(HttpStatus.OK)

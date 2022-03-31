@@ -15,7 +15,7 @@ public interface PostService {
 
     PostDto findByIdDto(Long id);
 
-//    boolean save(Post p);
+    void save(Post p);
 
     void deleteById(Long id);
 

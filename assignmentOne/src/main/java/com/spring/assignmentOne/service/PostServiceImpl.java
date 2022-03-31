@@ -46,10 +46,10 @@ public class PostServiceImpl implements PostService{
         postRepo.deleteById(id);
     }
 
-//    @Override
-//    public boolean save(Post p){
-//       return postRepo.save(p);
-//    }
+    @Override
+    public void save(Post p){
+       postRepo.save(p);
+    }
 
 //    @Override
 //    public void updateById(int id, Post p){

@@ -12,8 +12,6 @@ public interface PostRepo extends CrudRepository<Post, Long> {
 
     Optional<Post> findById(Long id);
 
-//    boolean save(Post p);
-
     void deleteById(Long id);
 
 //    void updateBy(int id, Post p);
