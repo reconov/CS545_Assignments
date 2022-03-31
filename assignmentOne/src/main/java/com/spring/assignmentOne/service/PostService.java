@@ -20,4 +20,6 @@ public interface PostService {
     void deleteById(int id);
 
     void updateById(int id, Post updatedPost);
+
+    List<PostDto> filterByAuthor(String author);
 }

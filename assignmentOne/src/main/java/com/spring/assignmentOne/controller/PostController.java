@@ -23,19 +23,19 @@ public class PostController {
     PostService postService;
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/")
+    @GetMapping
     public List<Post> allPostDefault(){ // default -> redirect to V1 ( empty header )
         return allPostsV1();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping( value = "/", headers = "X-API-VERSION=1")
+    @GetMapping( headers = "X-API-VERSION=1")
     public List<Post> allPostsV1(){
         return postService.getAll();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping( value = "/", headers = "X-API-VERSION=2")
+    @GetMapping( headers = "X-API-VERSION=2")
     public List<PostDto> allPostsV2(){
         return postService.getAllDto();
     }
@@ -67,4 +67,8 @@ public class PostController {
         postService.deleteById(id);
     }
 
+    @GetMapping("/filter")
+    public List<PostDto> filtered(@RequestParam String author){
+        return postService.filterByAuthor(author);
+    }
 }

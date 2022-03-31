@@ -26,8 +26,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public List<PostDto> getAllDto(){
-        return postRepo.getAll()
-                .stream()
+        return postRepo.getAll().stream()
                 .map(eachPost -> modelMapper.map(eachPost, PostDto.class))
                 .collect(Collectors.toList());
     }
@@ -55,5 +54,12 @@ public class PostServiceImpl implements PostService{
     @Override
     public void deleteById(int id){
         postRepo.delete(id);
+    }
+
+    @Override
+    public List<PostDto> filterByAuthor(String author){
+        return getAllDto().stream()
+                .filter(x -> x.getAuthor().equals(author))
+                .collect(Collectors.toList());
     }
 }

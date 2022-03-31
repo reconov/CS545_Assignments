@@ -20,8 +20,9 @@ public class PostRepoImpl implements PostRepo{
         Post p2 = new Post(2, "Another post here", "blah blah", "Mr. y");
         Post p3 = new Post(3, "My hands are still typing", "blah blah", "Mr. z");
         Post p4 = new Post(4, "Man, got to go and sllllpp", "blah blah", "Mr. a");
+        Post p5 = new Post(5, "Some post goes here", "blah blah", "Mr. x");
 
-        postList.addAll(Arrays.asList(p1, p2, p3, p4));
+        postList.addAll(Arrays.asList(p1, p2, p3, p4, p5));
     }
 
     @Override
