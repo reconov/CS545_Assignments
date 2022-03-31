@@ -8,8 +8,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class PostV2 {
 
-    int id;
-    String title;
-    String content;
-    String author;
+    private int id;
+    private String title;
+    private String content;
+    private String author;
 }

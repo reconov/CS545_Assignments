@@ -7,8 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class Post {
 
-    int id;
-    String title;
-    String content;
-    String author;
+    private int id;
+    private String title;
+    private String content;
+    private String author;
 }
