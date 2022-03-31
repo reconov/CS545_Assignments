@@ -31,7 +31,7 @@ public class PostController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping( headers = "X-API-VERSION=1")
     public List<Post> allPostsV1(){
-        return postService.getAll();
+        return postService.findAll();
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -41,29 +41,29 @@ public class PostController {
     }
 
     @GetMapping(value = "/{id}")
-    public Post getPostById(@PathVariable int id){
-        return postService.getById(id);
+    public Post getPostById(@PathVariable Long id){
+        return postService.findById(id);
     }
 
     @GetMapping( value = "/{id}", headers = "X-API-VERSION=2")
-    public PostDto getPostByIdDto(@PathVariable int id){
-        return postService.getByIdDto(id);
+    public PostDto getPostByIdDto(@PathVariable Long id){
+        return postService.findByIdDto(id);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "")
-    public boolean newPost(@RequestBody Post newPost){
-        return postService.save(newPost);
-    }
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @PostMapping(value = "")
+//    public boolean newPost(@RequestBody Post newPost){
+//        return postService.save(newPost);
+//    }
 
-    @PutMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public void updatePost(@PathVariable int id, @RequestBody Post post){
-        postService.updateById(id, post);
-    }
+//    @PutMapping(value = "/{id}")
+//    @ResponseStatus(HttpStatus.OK)
+//    public void updatePost(@PathVariable Long id, @RequestBody Post post){
+//        postService.updateById(id, post);
+//    }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteById(@PathVariable int id){
+    public void deleteById(@PathVariable Long id){
         postService.deleteById(id);
     }
 

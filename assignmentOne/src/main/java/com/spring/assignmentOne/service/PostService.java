@@ -7,19 +7,19 @@ import java.util.List;
 
 public interface PostService {
 
-    List<Post> getAll();
+    List<Post> findAll();
 
     List<PostDto> getAllDto();
 
-    Post getById(int id);
+    Post findById(Long id);
 
-    PostDto getByIdDto(int id);
+    PostDto findByIdDto(Long id);
 
-    boolean save(Post p);
+//    boolean save(Post p);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
-    void updateById(int id, Post updatedPost);
+//    void updateById(int id, Post updatedPost);
 
     List<PostDto> filterByAuthor(String author);
 }

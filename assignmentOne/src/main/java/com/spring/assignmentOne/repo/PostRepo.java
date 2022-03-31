@@ -1,19 +1,22 @@
 package com.spring.assignmentOne.repo;
 
 import com.spring.assignmentOne.domain.Post;
-import com.spring.assignmentOne.domain.dto.PostDto;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface PostRepo {
+public interface PostRepo extends CrudRepository<Post, Long> {
 
-    List<Post> getAll();
+    List<Post> findAll();
 
-    Post getById(int id);
+    Optional<Post> findById(Long id);
 
-    boolean save(Post p);
+//    boolean save(Post p);
 
-    void delete(int id);
+    void deleteById(Long id);
 
-    void update(int id, Post p);
+//    void updateBy(int id, Post p);
+
 }
+

@@ -20,41 +20,46 @@ public class PostServiceImpl implements PostService{
     ModelMapper modelMapper;
 
     @Override
-    public List<Post> getAll(){
-        return postRepo.getAll();
+    public List<Post> findAll(){
+        return postRepo.findAll();
     }
 
     @Override
     public List<PostDto> getAllDto(){
-        return postRepo.getAll().stream()
+        return postRepo.findAll().stream()
                 .map(eachPost -> modelMapper.map(eachPost, PostDto.class))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public Post getById(int id){
-        return postRepo.getById(id);
+    public Post findById(Long id){
+        return postRepo.findById(id).orElse(null);
     }
 
     @Override
-    public PostDto getByIdDto(int id) {
-        return modelMapper.map( postRepo.getById(id), PostDto.class ); // map(from, to);
+    public PostDto findByIdDto(Long id) {
+        return modelMapper.map( postRepo.findById(id), PostDto.class ); // map(from, to);
     }
 
     @Override
-    public boolean save(Post p){
-       return postRepo.save(p);
+    public void deleteById(Long id) {
+        postRepo.deleteById(id);
     }
 
-    @Override
-    public void updateById(int id, Post p){
-        postRepo.update(id, p);
-    }
+//    @Override
+//    public boolean save(Post p){
+//       return postRepo.save(p);
+//    }
 
-    @Override
-    public void deleteById(int id){
-        postRepo.delete(id);
-    }
+//    @Override
+//    public void updateById(int id, Post p){
+//        postRepo.update(id, p);
+//    }
+
+//    @Override
+//    public void deleteById(Long id){
+//        postRepo.delete(id);
+//    }
 
     @Override
     public List<PostDto> filterByAuthor(String author){
