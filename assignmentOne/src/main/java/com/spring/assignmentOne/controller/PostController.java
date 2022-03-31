@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Post controller
+ * @author Abraham Bisrat
+ *
+ */
+
 @RestController
 @RequestMapping("/posts")
 public class PostController {
