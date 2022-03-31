@@ -1,1 +1,1 @@
-# Assignments of Web Application Architecture using Spring Boot, REST
+# CS545 - Web Application Architecture using Spring Boot, REST
