@@ -5,12 +5,12 @@ services:
     image: postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: posgres
+      POSTGRES_PASSWORD: 1
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
     ports:
-      - "2222:2222"
+      - "5432:5432"
     restart: unless-stopped
 
 #  pgadmin:

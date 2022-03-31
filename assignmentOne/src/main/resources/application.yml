@@ -3,7 +3,7 @@ spring:
     name: Lab2
   datasource:
     password: posgres
-    url: jdbc:postgresql://localhost:2222/lab2-data
+    url: jdbc:postgresql://localhost:5432/postgres-lab2-data
     username: postgres
   jpa:
     hibernate:
