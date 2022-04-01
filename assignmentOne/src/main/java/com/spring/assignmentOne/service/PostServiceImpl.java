@@ -25,7 +25,7 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public List<PostDto> getAllDto(){
+    public List<PostDto> findAllDto(){
         return postRepo.findAll().stream()
                 .map(eachPost -> modelMapper.map(eachPost, PostDto.class))
                 .collect(Collectors.toList());
@@ -38,7 +38,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public PostDto findByIdDto(Long id) {
-        return modelMapper.map( postRepo.findById(id), PostDto.class ); // map(from, to);
+        return modelMapper.map( findById(id), PostDto.class ); // map(from, to);
     }
 
     @Override
@@ -51,19 +51,23 @@ public class PostServiceImpl implements PostService{
        postRepo.save(p);
     }
 
-//    @Override
-//    public void updateById(int id, Post p){
-//        postRepo.update(id, p);
-//    }
-
-//    @Override
-//    public void deleteById(Long id){
-//        postRepo.delete(id);
-//    }
+    @Override
+    public void updateById(Long id, Post p){ // needs improved mapping
+        if(p != null){
+            var post = postRepo.findById(id).orElse(null);
+            if(post != null){
+                post.setAuthor(p.getAuthor());
+                post.setContent(p.getContent());
+                post.setTitle(p.getTitle());
+                System.out.println("The update post : " + post);
+                postRepo.save(post);
+            }
+        }
+    }
 
     @Override
     public List<PostDto> filterByAuthor(String author){
-        return getAllDto().stream()
+        return findAllDto().stream()
                 .filter(x -> x.getAuthor().equals(author))
                 .collect(Collectors.toList());
     }

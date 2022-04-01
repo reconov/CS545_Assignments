@@ -14,7 +14,5 @@ public interface PostRepo extends CrudRepository<Post, Long> {
 
     void deleteById(Long id);
 
-//    void updateBy(int id, Post p);
-
 }
 

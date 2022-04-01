@@ -37,16 +37,16 @@ public class PostController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping( headers = "X-API-VERSION=2")
     public List<PostDto> allPostsV2(){
-        return postService.getAllDto();
+        return postService.findAllDto();
     }
 
     @GetMapping(value = "/{id}")
-    public Post getPostById(@PathVariable Long id){
+    public Post getPostById(@PathVariable("id") Long id){
         return postService.findById(id);
     }
 
     @GetMapping( value = "/{id}", headers = "X-API-VERSION=2")
-    public PostDto getPostByIdDto(@PathVariable Long id){
+    public PostDto getPostByIdDto(@PathVariable("id") Long id){
         return postService.findByIdDto(id);
     }
 
@@ -56,15 +56,19 @@ public class PostController {
         postService.save(newPost);
     }
 
-//    @PutMapping(value = "/{id}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public void updatePost(@PathVariable Long id, @RequestBody Post post){
-//        postService.updateById(id, post);
-//    }
+    @PutMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updatePost(@PathVariable Long id, @RequestBody Post post){
+        postService.updateById(id, post);
+    }
 
     @DeleteMapping(value = "/{id}")
     public void deleteById(@PathVariable Long id){
-        postService.deleteById(id);
+        try {
+            postService.deleteById(id);
+        } catch (Exception e){
+            System.out.println("Data doesn't exist");
+        }
     }
 
     @GetMapping("/filter")

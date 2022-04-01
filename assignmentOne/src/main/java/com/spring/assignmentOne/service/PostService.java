@@ -9,7 +9,7 @@ public interface PostService {
 
     List<Post> findAll();
 
-    List<PostDto> getAllDto();
+    List<PostDto> findAllDto();
 
     Post findById(Long id);
 
@@ -19,7 +19,7 @@ public interface PostService {
 
     void deleteById(Long id);
 
-//    void updateById(int id, Post updatedPost);
+    void updateById(Long id, Post updatedPost);
 
     List<PostDto> filterByAuthor(String author);
 }
