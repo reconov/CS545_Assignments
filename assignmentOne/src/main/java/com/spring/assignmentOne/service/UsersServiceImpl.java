@@ -45,4 +45,9 @@ public class UsersServiceImpl implements UsersService{
             postRepo.save(p);
         }
     }
+
+    @Override
+    public List<Users> findMoreThanOnePost(int count){
+        return usersRepo.findMoreThanOnePost(count);
+    }
 }
