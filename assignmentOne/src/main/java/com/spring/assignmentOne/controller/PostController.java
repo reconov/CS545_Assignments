@@ -41,8 +41,8 @@ public class PostController {
     }
 
     @GetMapping(value = "/{id}")
-    public Post getPostById(@PathVariable("id") Long id){
-        return postService.findById(id);
+    public List<Post> getPostById(@PathVariable("id") Long id){
+        return postService.findAllById(id);
     }
 
     @GetMapping( value = "/{id}", headers = "X-API-VERSION=2")

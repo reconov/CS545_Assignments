@@ -10,7 +10,7 @@ public interface PostRepo extends CrudRepository<Post, Long> {
 
     List<Post> findAll();
 
-    Optional<Post> findById(Long id);
+    Optional<List<Post>> findAllById(Long id);
 
     void deleteById(Long id);
 

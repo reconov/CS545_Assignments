@@ -32,13 +32,13 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Post findById(Long id){
-        return postRepo.findById(id).orElse(null);
+    public List<Post> findAllById(Long id){
+        return postRepo.findAllById(id).orElse(null);
     }
 
     @Override
     public PostDto findByIdDto(Long id) {
-        return modelMapper.map( findById(id), PostDto.class ); // map(from, to);
+        return modelMapper.map( findAllById(id), PostDto.class ); // map(from, to);
     }
 
     @Override
