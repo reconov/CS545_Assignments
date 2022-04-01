@@ -61,6 +61,8 @@ public class PostServiceImpl implements PostService{
                 post.setTitle(p.getTitle());
                 System.out.println("The update post : " + post);
                 postRepo.save(post);
+//                postRepo.save(modelMapper.map(postRepo.findById(id).orElse(null), p));
+//                postRepo.save(modelMapper.map(post, p));
             }
         }
     }
