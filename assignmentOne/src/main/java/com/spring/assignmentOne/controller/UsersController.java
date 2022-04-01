@@ -44,10 +44,6 @@ public class UsersController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{id}/posts")
     public void addPostToUser(@RequestBody Post p, @PathVariable("id") Long id){
-        System.out.println("Gathered data");
-        System.out.println(id);
-        System.out.println(p);
-        // make sure the user by that id exists
-
+        usersService.addPostToUser(id, p);
     }
 }

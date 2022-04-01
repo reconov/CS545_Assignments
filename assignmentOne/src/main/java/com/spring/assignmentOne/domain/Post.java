@@ -1,5 +1,6 @@
 package com.spring.assignmentOne.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,10 @@ public class Post {
     private Long id;
     private String title;
     private String content;
+
+    @ManyToOne()
+    @JoinColumn()
+    @JsonBackReference()
+    private Users user;
 
 }
