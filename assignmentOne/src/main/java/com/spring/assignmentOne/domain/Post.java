@@ -14,9 +14,8 @@ public class Post {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-//    @Column( nullable = false )
     private Long id;
     private String title;
     private String content;
-    private String author;
+
 }

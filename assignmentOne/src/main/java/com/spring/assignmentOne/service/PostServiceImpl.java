@@ -56,7 +56,7 @@ public class PostServiceImpl implements PostService{
         if(p != null){
             var post = postRepo.findById(id).orElse(null);
             if(post != null){
-                post.setAuthor(p.getAuthor());
+//                post.setAuthor(p.getAuthor());
                 post.setContent(p.getContent());
                 post.setTitle(p.getTitle());
                 System.out.println("The update post : " + post);

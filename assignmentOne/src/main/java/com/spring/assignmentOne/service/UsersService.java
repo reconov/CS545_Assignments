@@ -15,4 +15,5 @@ public interface UsersService {
     void createUser(Users newUser);
 
     List<Post> findAllPosts(Long id);
+
 }

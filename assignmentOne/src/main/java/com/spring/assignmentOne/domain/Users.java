@@ -19,8 +19,8 @@ public class Users {
     private Long id;
     private String name;
 
-    @OneToMany
-    @JoinColumn( name = "users_post")
-    private Set<Post> posts;
+    @OneToMany( cascade = CascadeType.ALL)
+    @JoinColumn( name = "user_id", referencedColumnName = "id")
+    private List<Post> post;
 
 }
