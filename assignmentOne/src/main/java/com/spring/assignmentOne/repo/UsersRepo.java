@@ -14,5 +14,6 @@ public interface UsersRepo extends CrudRepository<Users, Long> {
 
     Optional<Users> findById(Long id);
 
-    // get a users posts
+    // query to fetch users that have more than one posts
+
 }
