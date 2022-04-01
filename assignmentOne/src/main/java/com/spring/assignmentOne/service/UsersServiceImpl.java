@@ -5,9 +5,11 @@ import com.spring.assignmentOne.domain.Users;
 import com.spring.assignmentOne.repo.PostRepo;
 import com.spring.assignmentOne.repo.UsersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UsersServiceImpl implements UsersService{
 
     @Autowired
