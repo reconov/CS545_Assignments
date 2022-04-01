@@ -7,7 +7,6 @@ import com.spring.assignmentOne.repo.UsersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -41,19 +40,9 @@ public class UsersServiceImpl implements UsersService{
 
     @Override
     public void addPostToUser(Long id, Post p) {
-        // make sure the user by that id exists
         if(findUserById(id) != null) {
-            System.out.println("Gathered data");
-            System.out.println(id);
-            System.out.println(p);
-            System.out.println();
-
             p.setUser(findUserById(id));
-            System.out.println("\n\n\n\n\nReached here");
             postRepo.save(p);
-            System.out.println("\n\n\n\n\ndid i reach here? ");
-
-//            System.out.println(usersRepo.findById(id).orElse(null).getPosts());
         }
     }
 }

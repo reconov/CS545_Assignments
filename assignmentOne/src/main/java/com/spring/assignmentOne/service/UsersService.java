@@ -2,7 +2,6 @@ package com.spring.assignmentOne.service;
 
 import com.spring.assignmentOne.domain.Post;
 import com.spring.assignmentOne.domain.Users;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
