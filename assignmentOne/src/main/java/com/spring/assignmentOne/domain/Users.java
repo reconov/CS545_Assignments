@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -18,8 +19,8 @@ public class Users {
     private Long id;
     private String name;
 
-//    @OneToMany
-//    @JoinColumn( name = "post_user")
-//    private List<Post> posts;
+    @OneToMany
+    @JoinColumn( name = "users_post")
+    private Set<Post> posts;
 
 }
