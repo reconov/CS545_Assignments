@@ -19,7 +19,7 @@ public class Users {
     private Long id;
     private String name;
 
-    @OneToMany( mappedBy = "user")
+    @OneToMany( mappedBy = "user" )
     @JsonManagedReference
     private List<Post> posts;
 
