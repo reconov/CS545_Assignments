@@ -21,13 +21,13 @@ public class UsersController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/")
-    @ExcutionTime
     public List<Users> findAllUsers(){
         return usersService.findAllUsers();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
+    @ExcutionTime
     public Users findUsersById(@PathVariable("id") Long id){
         return usersService.findUserById(id);
     }

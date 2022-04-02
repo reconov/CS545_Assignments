@@ -23,7 +23,7 @@ public class Logger {
     private String transaction_id;
 
     private LocalDate date;
-    private LocalTime time;
+    private long timeMs;
     private String principle = "some principle here";
     private String operation;
 
