@@ -23,6 +23,6 @@ public interface UsersRepo extends CrudRepository<Users, Long> {
 //    @Query("select u from Users.posts u where u.title = :title")
 //    List<Users> findUsersByPostTitle(String title);
 
-    default List<Users> findUsersByPostTitle(String title) { return null;}
+//    default List<Users> findUsersByPostTitle(String title) { return null;}
 
 }

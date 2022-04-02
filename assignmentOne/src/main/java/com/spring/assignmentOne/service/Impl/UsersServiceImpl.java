@@ -60,14 +60,12 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<Users> usersWithAPostTitled(String title){
-        return usersRepo.findUsersByPostTitle(title);
+//        return usersRepo.findUsersByPostTitle(title);
+        return null;
     }
 
     @Override
     public Post findUserByIdAndPost(Long userId, Long postId){
-        return findUserById(userId).getPosts()
-                .stream()
-                .filter(eachP -> eachP.getId() == postId)
-                .findFirst().orElse(null);
+        return postRepo.findById(postId).orElse(null);
     }
 }
