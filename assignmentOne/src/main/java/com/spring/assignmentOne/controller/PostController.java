@@ -64,11 +64,7 @@ public class PostController {
 
     @DeleteMapping(value = "/{id}")
     public void deleteById(@PathVariable Long id){
-        try {
-            postService.deleteById(id);
-        } catch (Exception e){
-            System.out.println("Data doesn't exist");
-        }
+        postService.deleteById(id);
     }
 
     @GetMapping("/filter")
