@@ -1,6 +1,7 @@
 package com.spring.assignmentOne.controller;
 
 
+import com.spring.assignmentOne.aspect.logger.ExcutionTime;
 import com.spring.assignmentOne.domain.Comment;
 import com.spring.assignmentOne.domain.Post;
 import com.spring.assignmentOne.domain.Users;
@@ -20,6 +21,7 @@ public class UsersController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/")
+    @ExcutionTime
     public List<Users> findAllUsers(){
         return usersService.findAllUsers();
     }

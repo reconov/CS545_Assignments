@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
@@ -23,7 +24,7 @@ public class Logger {
 
     private LocalDate date;
     private LocalTime time;
-    private String principle;
+    private String principle = "some principle here";
     private String operation;
 
 }
