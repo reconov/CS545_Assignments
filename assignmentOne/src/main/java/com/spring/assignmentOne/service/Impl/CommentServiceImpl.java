@@ -5,13 +5,10 @@ import com.spring.assignmentOne.repo.CommentRepo;
 import com.spring.assignmentOne.repo.PostRepo;
 import com.spring.assignmentOne.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 
 @Service
-//@Transactional
 public class CommentServiceImpl implements CommentService {
 
     @Autowired
@@ -22,7 +19,6 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void addCommentByPostId(Long id, Comment newComment) {
-        System.out.println("The current max id is : " + commentRepo.getMaxId());
         if(postRepo.findById(id) != null){ // should reduce calling twice
             newComment.setPost(postRepo.findById(id).orElse(null));
             commentRepo.save(newComment);
