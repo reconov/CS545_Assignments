@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.aspect.logger;
+package com.spring.assignmentOne.aspect.logger.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,14 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Logger {
+public class Exception {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
@@ -26,5 +24,8 @@ public class Logger {
     private long timeMs;
     private String principle = "some principle here";
     private String operation;
+    private String exceptionTime;
+
+
 
 }

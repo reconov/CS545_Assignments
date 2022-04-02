@@ -71,4 +71,9 @@ public class UsersController {
         usersService.deleteById(id);
     }
 
+    @GetMapping("/exceptionTest")
+    public void testExceptionLogger(){
+        int[] array = {1, 2, 3};
+        System.out.println(array[3]);
+    }
 }
