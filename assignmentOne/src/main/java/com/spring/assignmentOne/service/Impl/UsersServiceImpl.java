@@ -56,4 +56,9 @@ public class UsersServiceImpl implements UsersService {
     public void deleteById(Long id){
         usersRepo.deleteById(id);
     }
+
+    @Override
+    public List<Users> usersWithAPostTitled(String title){
+        usersRepo.///
+    }
 }

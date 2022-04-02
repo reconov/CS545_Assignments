@@ -19,5 +19,7 @@ public interface UsersService {
 
     List<Users> findMoreThanOnePost(int n);
 
+    List<Users> usersWithAPostTitled(String s);
+
     void deleteById(Long id);
 }

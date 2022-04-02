@@ -24,4 +24,5 @@ public interface PostService {
     List<PostDto> filterByAuthor(String author);
 
     List<Post> findPostByTitle(String title);
+
 }
