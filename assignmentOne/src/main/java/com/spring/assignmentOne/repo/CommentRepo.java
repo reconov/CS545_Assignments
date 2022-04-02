@@ -15,5 +15,8 @@ public interface CommentRepo extends CrudRepository<Comment, Long> {
 
     Optional<Comment> findById(Long id);
 
+//    List<Users>
+
     // query to fetch users that have more than n comments to a post
+
 }

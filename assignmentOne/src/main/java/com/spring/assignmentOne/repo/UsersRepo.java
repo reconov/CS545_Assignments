@@ -20,9 +20,10 @@ public interface UsersRepo extends CrudRepository<Users, Long> {
 
     void deleteById(Long id);
 
-    @Query("select u from Users.posts u where u.title = :title")
+    @Query(value = "SELECT * from users u "
+                    + "RIGHT JOIN post p on p.user_id = u.id"
+                    + "WHERE p.title = :title",
+                nativeQuery = true)
     List<Users> findUsersByPostTitle(String title);
-
-//    default List<Users> findUsersByPostTitle(String title) { return null;}
 
 }
