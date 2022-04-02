@@ -55,16 +55,18 @@ public class PostServiceImpl implements PostService {
     @Override
     public void updateById(Long id, Post p){ // needs improved mapping
         if(p != null){
-            var post = postRepo.findById(id).orElse(null);
-            if(post != null){
-//                post.setAuthor(p.getAuthor());
-                post.setContent(p.getContent());
-                post.setTitle(p.getTitle());
-                System.out.println("The update post : " + post);
-                postRepo.save(post);
-//                postRepo.save(modelMapper.map(postRepo.findById(id).orElse(null), p));
-//                postRepo.save(modelMapper.map(post, p));
-            }
+//            var post = postRepo.findById(id).orElse(null);
+//            if(post != null){
+////                post.setAuthor(p.getAuthor());
+//                post.setContent(p.getContent());
+//                post.setTitle(p.getTitle());
+//                System.out.println("The update post : " + post);
+//                postRepo.save(post);
+////                postRepo.save(modelMapper.map(postRepo.findById(id).orElse(null), p));
+////                postRepo.save(modelMapper.map(post, p));
+//            }
+            p.setId(id);
+            postRepo.save(p);
         }
     }
 
@@ -73,5 +75,10 @@ public class PostServiceImpl implements PostService {
         return findAllDto().stream()
                 .filter(x -> x.getAuthor().equals(author))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Post> findPostByTitle(String title) {
+        return postRepo.findPostByTitle(title);
     }
 }

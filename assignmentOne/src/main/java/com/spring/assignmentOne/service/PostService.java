@@ -22,4 +22,6 @@ public interface PostService {
     void updateById(Long id, Post updatedPost);
 
     List<PostDto> filterByAuthor(String author);
+
+    List<Post> findPostByTitle(String title);
 }

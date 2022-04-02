@@ -18,4 +18,7 @@ public interface UsersRepo extends CrudRepository<Users, Long> {
     // query to fetch users that have more than one posts
     @Query("select u from Users u where u.posts.size >= :n")
     List<Users> findMoreThanOnePost(int n);
+
+    void deleteById(Long id);
+
 }

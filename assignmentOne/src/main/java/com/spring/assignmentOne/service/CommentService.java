@@ -8,6 +8,5 @@ import org.springframework.stereotype.Service;
 public interface CommentService {
 
     void addCommentByPostId(Long id, Comment c);
-
 //    void carefulSave(Comment c);
 }

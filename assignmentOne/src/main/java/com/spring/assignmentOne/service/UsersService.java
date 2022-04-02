@@ -18,4 +18,6 @@ public interface UsersService {
     void addPostToUser(Long id, Post p);
 
     List<Users> findMoreThanOnePost(int n);
+
+    void deleteById(Long id);
 }

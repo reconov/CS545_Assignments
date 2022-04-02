@@ -18,7 +18,9 @@ public interface CommentRepo extends CrudRepository<Comment, Long> {
     @Query( value = "SELECT max(id) FROM Comment")
     Long getMaxId();
 
-//    @Query("Insert ")
+//    @Query( value = "Insert INTO comment ( id, name, post_id ) " +
+//            "VALUES ( :getMaxId(), :c.getName(), :c.getPost().getId() )",
+//            nativeQuery = true)
 //    void carefulSave(Comment c);
 
     // query to fetch users that have more than n comments to a post

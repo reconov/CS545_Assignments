@@ -128,3 +128,10 @@ VALUES (25, 'Interesting points raised', 2);
 INSERT INTO comment (id, name, post_id)
 VALUES (26, 'Interesting points raised', 2);
 
+
+-- reset the sequence values
+
+-- alter sequence comment_id_seq restart with 27;
+-- alter sequence post_id_seq restart with 11;
+-- alter sequence users_id_seq restart with 6;
+

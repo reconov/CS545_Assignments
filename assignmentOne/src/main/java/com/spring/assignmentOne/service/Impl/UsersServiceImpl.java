@@ -51,4 +51,9 @@ public class UsersServiceImpl implements UsersService {
     public List<Users> findMoreThanOnePost(int count){
         return usersRepo.findMoreThanOnePost(count);
     }
+
+    @Override
+    public void deleteById(Long id){
+        usersRepo.deleteById(id);
+    }
 }

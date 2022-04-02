@@ -26,7 +26,7 @@ public class Post {
     @JsonBackReference()
     private Users user;
 
-    @OneToMany( mappedBy = "post")
+    @OneToMany( mappedBy = "post", cascade = CascadeType.ALL )
     @JsonManagedReference
     private List<Comment> comments;
 

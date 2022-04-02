@@ -46,4 +46,11 @@ public class UsersController {
     public void addPostToUser(@RequestBody Post p, @PathVariable("id") Long id){
         usersService.addPostToUser(id, p);
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/{id}")
+    public void deleteUserById(@PathVariable("id") Long id){
+        usersService.deleteById(id);
+    }
+
 }

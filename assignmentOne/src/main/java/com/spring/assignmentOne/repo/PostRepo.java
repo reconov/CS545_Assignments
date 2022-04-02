@@ -1,6 +1,7 @@
 package com.spring.assignmentOne.repo;
 
 import com.spring.assignmentOne.domain.Post;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -16,5 +17,8 @@ public interface PostRepo extends CrudRepository<Post, Long> {
 
     void deleteById(Long id);
 
+    @Query("select p from Post p where p.title = :title")
+    List<Post> findPostByTitle(String title);
+    
 }
 
