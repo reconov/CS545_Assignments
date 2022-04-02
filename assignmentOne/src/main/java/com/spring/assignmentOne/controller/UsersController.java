@@ -1,6 +1,7 @@
 package com.spring.assignmentOne.controller;
 
 
+import com.spring.assignmentOne.domain.Comment;
 import com.spring.assignmentOne.domain.Post;
 import com.spring.assignmentOne.domain.Users;
 import com.spring.assignmentOne.service.UsersService;
@@ -43,9 +44,17 @@ public class UsersController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{userId}/posts/{postId}/")
-    public Post findUserByIdAndPost(@PathVariable("userId") Long userId,
+    public Post findPostByUserAndPostId(@PathVariable("userId") Long userId,
                                     @PathVariable("postId") Long postId){
         return usersService.findUserByIdAndPost(userId, postId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{userId}/posts/{postId}/comments/{commentId}")
+    public Comment findCommentByUserAndPostId(@PathVariable("userId") Long userId,
+                                              @PathVariable("postId") Long postId,
+                                              @PathVariable("commentId") Long commentId){
+        return usersService.findCommentByUserAndPostId(userId, postId, commentId);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

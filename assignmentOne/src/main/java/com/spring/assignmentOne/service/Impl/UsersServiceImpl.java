@@ -1,5 +1,6 @@
 package com.spring.assignmentOne.service.Impl;
 
+import com.spring.assignmentOne.domain.Comment;
 import com.spring.assignmentOne.domain.Post;
 import com.spring.assignmentOne.domain.Users;
 import com.spring.assignmentOne.repo.PostRepo;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -67,5 +69,14 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public Post findUserByIdAndPost(Long userId, Long postId){
         return postRepo.findById(postId).orElse(null);
+    }
+
+    @Override // Also accessible directly from comment db
+    public Comment findCommentByUserAndPostId(Long userId, Long postId, Long commentId){
+        return postRepo.findById(postId)
+                .orElse(null)
+                .getComments().stream()
+                .filter(eachComment -> eachComment.getId() == commentId)
+                .findFirst().orElse(null);
     }
 }

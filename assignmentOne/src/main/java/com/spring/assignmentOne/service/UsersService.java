@@ -1,5 +1,6 @@
 package com.spring.assignmentOne.service;
 
+import com.spring.assignmentOne.domain.Comment;
 import com.spring.assignmentOne.domain.Post;
 import com.spring.assignmentOne.domain.Users;
 
@@ -24,4 +25,7 @@ public interface UsersService {
     void deleteById(Long id);
 
     Post findUserByIdAndPost(Long userId, Long postId);
+
+    Comment findCommentByUserAndPostId(Long uId, Long pId, Long cId);
+
 }
