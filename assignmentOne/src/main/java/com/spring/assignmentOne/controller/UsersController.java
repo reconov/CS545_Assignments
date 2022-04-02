@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 public class UsersController {
 
     @Autowired
@@ -39,6 +39,13 @@ public class UsersController {
     @GetMapping("/{id}/posts")
     public List<Post> findAllUsersPosts(@PathVariable("id") Long id){
         return usersService.findAllPosts(id);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{userId}/posts/{postId}/")
+    public Post findUserByIdAndPost(@PathVariable("userId") Long userId,
+                                    @PathVariable("postId") Long postId){
+        return usersService.findUserByIdAndPost(userId, postId);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

@@ -22,4 +22,6 @@ public interface UsersService {
     List<Users> usersWithAPostTitled(String s);
 
     void deleteById(Long id);
+
+    Post findUserByIdAndPost(Long userId, Long postId);
 }

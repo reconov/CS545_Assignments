@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/api/v1/posts")
 public class PostController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class PostController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping( headers = "X-API-VERSION=2")
+    @GetMapping( headers = "X-API-VERSION=2")       // versioning has changed to uri
     public List<PostDto> allPostsV2(){
         return postService.findAllDto();
     }

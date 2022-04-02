@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UsersServiceImpl implements UsersService {
@@ -59,6 +60,14 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<Users> usersWithAPostTitled(String title){
-        usersRepo.///
+        return usersRepo.findUsersByPostTitle(title);
+    }
+
+    @Override
+    public Post findUserByIdAndPost(Long userId, Long postId){
+        return findUserById(userId).getPosts()
+                .stream()
+                .filter(eachP -> eachP.getId() == postId)
+                .findFirst().orElse(null);
     }
 }
