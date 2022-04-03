@@ -72,5 +72,4 @@ public class PostServiceImpl implements PostService {
         return postRepo.findPostByTitle(title);
     }
 
-
 }

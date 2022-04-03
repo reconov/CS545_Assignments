@@ -14,21 +14,23 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Logger {
+public class exception {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private String transaction_id;
-
+    private long id;
     private LocalDate date;
     private LocalTime time;
-    private String principle;
     private String operation;
+    private String exceptionType;
+    private String exceptionMessage;
 
-    public Logger(LocalDate now, LocalTime now1, String op, String pr) {
-        date = now;
-        time = now1;
+    public exception(LocalDate d, LocalTime t, String op, String eT, String eM) {
+        date = d;
+        time = t;
         operation = op;
-        principle = pr;
+        exceptionType = eT;
+        exceptionMessage = eM;
     }
+
 }

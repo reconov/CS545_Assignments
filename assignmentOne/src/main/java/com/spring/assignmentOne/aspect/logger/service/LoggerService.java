@@ -10,9 +10,7 @@ import java.util.List;
 @Service
 public interface LoggerService {
 
-    default void add(ProceedingJoinPoint pjp) {
-        System.out.println(pjp.getSignature().getName());
-    }
+    void add(ProceedingJoinPoint pjp);
 
     List<Logger> findAll();
 
