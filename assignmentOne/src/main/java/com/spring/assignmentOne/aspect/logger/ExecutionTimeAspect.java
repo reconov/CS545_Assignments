@@ -21,8 +21,9 @@ public class ExecutionTimeAspect {
                 + "\n" + afterExecution
                 + "\n" + "Time elapsed while executing -->> "
                 + proceedingJoinPoint.getSignature().getName()
-                + " <<--  : ");
-        System.out.println(Duration.between(beforeExecution, afterExecution).toMillis() + "ms");
+                + " <<--  : "
+                + Duration.between(beforeExecution, afterExecution).toMillis()
+                + "ms");
     }
 
 }
