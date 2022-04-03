@@ -3,9 +3,11 @@ package com.spring.assignmentOne.service;
 import com.spring.assignmentOne.domain.Comment;
 import com.spring.assignmentOne.domain.Post;
 import com.spring.assignmentOne.domain.Users;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface UsersService {
 
     List<Users> findAllUsers();

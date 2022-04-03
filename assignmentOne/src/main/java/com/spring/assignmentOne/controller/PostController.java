@@ -34,21 +34,21 @@ public class PostController {
         return postService.findAll();
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping( headers = "X-API-VERSION=2")       // versioning has changed to uri
-    public List<PostDto> allPostsV2(){
-        return postService.findAllDto();
-    }
+//    @ResponseStatus(HttpStatus.OK)
+//    @GetMapping( headers = "X-API-VERSION=2")       // versioning has changed to uri
+//    public List<PostDto> allPostsV2(){
+//        return postService.findAllDto();
+//    }
 
     @GetMapping(value = "/{id}")
     public List<Post> getPostById(@PathVariable("id") Long id){
         return postService.findAllById(id);
     }
 
-    @GetMapping( value = "/{id}", headers = "X-API-VERSION=2")
-    public PostDto getPostByIdDto(@PathVariable("id") Long id){
-        return postService.findByIdDto(id);
-    }
+//    @GetMapping( value = "/{id}", headers = "X-API-VERSION=2")
+//    public PostDto getPostByIdDto(@PathVariable("id") Long id){
+//        return postService.findByIdDto(id);
+//    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "")
@@ -67,8 +67,9 @@ public class PostController {
         postService.deleteById(id);
     }
 
-    @GetMapping("/filter")
-    public List<PostDto> filtered(@RequestParam String author){
-        return postService.filterByAuthor(author);
-    }
+//    @GetMapping("/filter")
+//    public List<PostDto> filtered(@RequestParam String author){
+//        return postService.filterByAuthor(author);
+//    }
+
 }
