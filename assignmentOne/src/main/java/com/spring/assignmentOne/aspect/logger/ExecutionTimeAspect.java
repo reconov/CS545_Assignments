@@ -25,13 +25,4 @@ public class ExecutionTimeAspect {
         System.out.println(Duration.between(beforeExecution, afterExecution).toMillis() + "ms");
     }
 
-//    @AfterThrowing( pointcut = "execution(* com.spring.assignmentOne.controller.UsersController.*(..))", throwing = "up")
-//    public void logExecptionsEverywhere(JoinPoint joinPoint, Exception up){
-//        System.out.println("\n\n**** Exception Logged ****"
-//                + "\n" + joinPoint.getSignature().getName()
-//                + "\n" + up.getMessage()
-//                + "\n" + up.getStackTrace().toString());
-//        LoggerService.save(up);
-//    }
-
 }

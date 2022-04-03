@@ -24,7 +24,6 @@ public class LoggerServiceImpl implements LoggerService{
                         LocalTime.now(),
                         "bogus principle",
                         pjp.getSignature().getName()));
-        System.out.println("=> " + pjp.getSignature().getName());
     }
 
     @Override
