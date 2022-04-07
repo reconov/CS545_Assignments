@@ -2,15 +2,16 @@ spring:
   application:
     name: Lab2
   datasource:
-    password: posgres
-    url: jdbc:postgresql://localhost:5432/postgres-lab2-data
-    username: postgres
+    password: password
+    url: jdbc:mysql://localhost:3306/waa_assignmentDB
+    username: root
+#    driver-class-name: com.mysql
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
     show-sql: true
     defer-datasource-initialization: true
