@@ -17,7 +17,12 @@ public class Users {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
-    private String name;
+
+    private String email;
+    private String password;
+    private String firstName;
+    private String lastName;
+
 
     @OneToMany( mappedBy = "user", cascade = CascadeType.ALL )
     @JsonManagedReference
