@@ -18,7 +18,7 @@ public class Logger {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private String transactionId;
+    private long transactionId;
 
     private LocalDate date;
     private LocalTime time;

@@ -28,4 +28,8 @@ public class Users {
     @JsonManagedReference
     private List<Post> posts;
 
+    @ManyToMany
+    @JoinTable
+    private List<Role> roles;
+
 }
