@@ -18,7 +18,7 @@ public class LoggerServiceImpl implements LoggerService{
 
     @Override
     public void add(ProceedingJoinPoint pjp) {
-        loggerRepo.save(
+        loggerRepo.save(  // replace with builders
                 new Logger(
                         LocalDate.now(),
                         LocalTime.now(),
