@@ -161,3 +161,4 @@ INSERT INTO post (id, content, title, user_id)
 VALUES (2, 'iPasjfkjskajlkasjdf;asjdf', 'some title', 1);
 INSERT INTO post (id, content, title, user_id)
 VALUES (3, 'sjfkjskajlkasjdf;asjdf', 'some title', 1);
+

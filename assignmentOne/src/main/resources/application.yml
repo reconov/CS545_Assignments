@@ -21,3 +21,6 @@ spring:
       mode: always
 server:
   port: 4000
+
+jwt:
+  secret: 'someReallyComplicatedStringFromFileSomewhere'
