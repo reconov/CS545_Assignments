@@ -25,5 +25,4 @@ public class ExecutionTimeAspect {
                 + Duration.between(beforeExecution, afterExecution).toMillis()
                 + "ms");
     }
-
 }

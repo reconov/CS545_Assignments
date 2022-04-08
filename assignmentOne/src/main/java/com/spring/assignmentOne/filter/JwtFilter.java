@@ -16,47 +16,50 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class JwtFilter extends OncePerRequestFilter {
+public class JwtFilter{// extends OncePerRequestFilter {
 
-    private  final JwtTokenUtil jwtTokenUtil;
-    private final UserDetailsService userDetailsService;
-
-
-    public JwtFilter(JwtTokenUtil jwtTokenUtil, UserDetailsService userDetailsService) {
-        this.jwtTokenUtil = jwtTokenUtil;
-        this.userDetailsService = userDetailsService;
-    }
-
-
-    @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain)
-                    throws ServletException, IOException {
-        System.out.println("Filter is being applied here");
-        final String authorizationHeader = request.getHeader("Authorization");
-        String email = null;
-        String token = null;
-
-        // if token exists in the header
-        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            token = authorizationHeader.substring(7);
-            try {
-                email = jwtTokenUtil.getUsernameFromToken(token);
-            } catch (ExpiredJwtException e) {
-                System.out.println("token has expired");
-            }
-        }
-        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            var userDetails = userDetailsService.loadUserByUsername(email);
-            boolean isTokenValid = jwtTokenUtil.isTokenExpired(token);
-            if(isTokenValid) {
-                UsernamePasswordAuthenticationToken authenticationToken
-                        = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-            }
-        }
-        filterChain.doFilter(request, response);
-    }
+//    private  final JwtTokenUtil jwtTokenUtil;
+//    private final UserDetailsService userDetailsService;
+//
+//
+//    public JwtFilter(JwtTokenUtil jwtTokenUtil, UserDetailsService userDetailsService) {
+//        this.jwtTokenUtil = jwtTokenUtil;
+//        this.userDetailsService = userDetailsService;
+//    }
+//
+//
+//    @Override
+//    protected void doFilterInternal(HttpServletRequest request,
+//                                    HttpServletResponse response,
+//                                    FilterChain filterChain)
+//                    throws ServletException, IOException {
+//        System.out.println("Filter is being applied here");
+//        final String authorizationHeader = request.getHeader("Authorization");
+//        String email = null;
+//        String token = null;
+//
+//        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+//            token = authorizationHeader.substring(7);
+//            try{
+//                email = jwtTokenUtil.getUsernameFromToken(token);
+//            }catch (ExpiredJwtException e){ // TODO come back here!
+//                String isRefreshToken = request.getHeader("isRefreshToken");
+//            }
+//
+//        }
+//
+//        if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+//            var userDetails = userDetailsService.loadUserByUsername(email);
+//            boolean isTokenValid = jwtTokenUtil.validateToken(token);
+//            if (isTokenValid) {
+//                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+//                        userDetails, null, userDetails.getAuthorities());
+//
+//                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//                SecurityContextHolder.getContext().setAuthentication(authentication);
+//            }
+//        }
+//
+//        filterChain.doFilter(request, response);
+//    }
 }

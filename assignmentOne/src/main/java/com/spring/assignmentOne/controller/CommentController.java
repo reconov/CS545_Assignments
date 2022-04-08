@@ -16,7 +16,7 @@ public class CommentController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{id}")
     public void addCommentByPostId( @RequestBody Comment c,
-                                    @PathVariable("id") Long id){
+                                    @PathVariable("id") Long id ) {
         commentService.addCommentByPostId(id, c);
     }
 

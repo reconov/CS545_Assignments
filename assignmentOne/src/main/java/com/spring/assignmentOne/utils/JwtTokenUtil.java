@@ -1,9 +1,7 @@
 package com.spring.assignmentOne.utils;
 
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -35,6 +33,25 @@ public class JwtTokenUtil implements Serializable {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername())
                 && !isTokenExpired(token));
+    }
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parser()
+                    .setSigningKey(secret)
+                    .parseClaimsJws(token);
+            return true;
+        } catch (SignatureException e) {
+            System.out.println(e.getMessage());
+        } catch (MalformedJwtException e) {
+            System.out.println(e.getMessage());
+        } catch (ExpiredJwtException e) {
+            System.out.println(e.getMessage());
+        } catch (UnsupportedJwtException e) {
+            System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {
