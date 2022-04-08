@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.Utils;
+package com.spring.assignmentOne.utils;
 
 
 import io.jsonwebtoken.Claims;

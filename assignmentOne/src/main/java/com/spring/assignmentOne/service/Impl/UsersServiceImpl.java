@@ -77,4 +77,9 @@ public class UsersServiceImpl implements UsersService {
         return commentRepo.findCommentByUserAndPostIdCommentId(userId, postId, commentId);
     }
 
+    @Override
+    public Users findUserByEmail(String email) {
+        return usersRepo.findUsersByEmail(email);
+    }
+
 }
