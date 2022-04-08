@@ -50,7 +50,7 @@ public class JwtTokenUtil implements Serializable {
                 .parseClaimsJws(token).getBody();
     }
 
-    private Boolean isTokenExpired(String token) {
+    public Boolean isTokenExpired(String token) {
         final Date expirationDate = getExpirationDateFromToken(token);
         return expirationDate.before(new Date());
     }
@@ -59,7 +59,7 @@ public class JwtTokenUtil implements Serializable {
         return getClaimFromToken(token, Claims::getExpiration);
     }
 
-    private String getUsernameFromToken(String token) {
+    public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
