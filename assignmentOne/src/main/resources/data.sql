@@ -136,17 +136,17 @@
 -- alter sequence users_id_seq restart with 6;
 
 
-
+-- #################################################################
 -- use this when dealing with new db server
 
+INSERT INTO users (id, username, first_name, last_name, password, enabled)
+VALUES (1, 'a', 'umur', 'inan', '{noop}a', true);
+INSERT INTO users (id, username, first_name, last_name, password, enabled)
+VALUES (2, 'b', 'john', 'doe', '{noop}a', true);
+INSERT INTO users (id, username, first_name, last_name, password, enabled)
+VALUES (3, 'c', 'Dean', 'Altarawneh', '{noop}a', true);
 
 
-INSERT INTO users (id, username, first_name, last_name, password, enabled)
-VALUES (1, 'uinan@miu.edu', 'umur', 'inan', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', true); --123
-INSERT INTO users (id, username, first_name, last_name, password, enabled)
-VALUES (2, 'john@miu.edu', 'john', 'doe', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', true); --123
-INSERT INTO users (id, username, first_name, last_name, password, enabled)
-VALUES (3, 'dean@miu.edu', 'Dean', 'Altarawneh', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', true); --123
 
 INSERT INTO role (id, role)
 VALUES (1, 'ADMIN');
@@ -167,8 +167,6 @@ INSERT INTO post (id, content, title, user_id)
 VALUES (2, 'iPasjfkjskajlkasjdf;asjdf', 'some title', 1);
 INSERT INTO post (id, content, title, user_id)
 VALUES (3, 'sjfkjskajlkasjdf;asjdf', 'some title', 1);
-
-
 
 
 SELECT * FROM users;
