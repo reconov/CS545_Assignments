@@ -26,6 +26,6 @@ public interface UsersRepo extends CrudRepository<Users, Long> {
                 nativeQuery = true)
     List<Users> findUsersByPostTitle(String title);
 
-    Users findUsersByEmail(String email);
+    Users findUsersByUsername(String email);
 
 }

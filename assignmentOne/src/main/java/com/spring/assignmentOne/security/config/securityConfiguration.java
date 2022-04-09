@@ -1,9 +1,9 @@
 package com.spring.assignmentOne.security.config;
 
-
 import com.spring.assignmentOne.filter.JwtFilter;
 import com.spring.assignmentOne.service.Impl.MyUserDetails;
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import javax.servlet.Filter;
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
@@ -27,24 +27,29 @@ import javax.servlet.Filter;
 public class securityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserDetailsService userDetailsService;
+    DataSource dataSource;
 
     @Override
     public void configure(AuthenticationManagerBuilder auth)
             throws Exception {
-//        auth.userDetailsService(userDetailsService);
-        auth.inMemoryAuthentication()
-                .withUser("a").password("a").roles("ADMIN") //or .roles("USER")
-                .and()
-                .withUser("b").password("b").roles("CLIENT"); //or .roles("USER")
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery(
+                        "select username, password, enabled "
+                        + "from users where username = ?")
+                .authoritiesByUsernameQuery(
+                        "select role from users_roles ur "
+                        + "right join users u on ur.users_id = u.id "
+                        + "right join role r on r.id =  ur.roles_id "
+                        + "where u.username = ?");
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
+                .antMatchers("/api/v1/posts").hasRole("ADMIN")
+                .antMatchers("/api/v1/users").hasAnyRole("CLIENT", "ADMIN")
                 .antMatchers("/").permitAll()
-                .antMatchers("/api/v1/users").hasRole("CLIENT")
-                .antMatchers("/api/v1/lecturers").hasRole("ADMIN")
                 .and().formLogin();
     }
 

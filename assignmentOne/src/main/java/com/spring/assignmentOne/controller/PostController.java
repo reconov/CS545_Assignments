@@ -22,11 +22,16 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping
-    public List<Post> allPostDefault(){ // default -> redirect to V1 ( empty header )
-        return allPostsV1();
+    @GetMapping()
+    public String index(){
+        return ("<h1>@elcome to posts endpoint</h1>");
     }
+
+//    @ResponseStatus(HttpStatus.OK)
+//    @GetMapping
+//    public List<Post> allPostDefault(){ // default -> redirect to V1 ( empty header )
+//        return allPostsV1();
+//    }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping( headers = "X-API-VERSION=1")

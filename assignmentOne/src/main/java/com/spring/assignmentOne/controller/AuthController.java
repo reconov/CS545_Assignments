@@ -7,16 +7,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/authenticate")
+@RequestMapping("/auth")
 @CrossOrigin
 public class AuthController {
 
-    @Autowired
-    AuthService authService;
+    private final AuthService authService;
 
-    @PostMapping
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
-        return null;
+    public AuthController(AuthService authService) {
+        this.authService = authService;
     }
 
+    @PostMapping
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        var loginResponse = authService.login(loginRequest);
+        return ResponseEntity.ok().body(loginResponse);
+    }
 }

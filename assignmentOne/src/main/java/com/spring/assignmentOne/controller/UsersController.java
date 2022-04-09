@@ -19,11 +19,16 @@ public class UsersController {
     @Autowired
     UsersService usersService;
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/")
-    public List<Users> findAllUsers(){
-        return usersService.findAllUsers();
+    @GetMapping()
+    public String index(){
+        return ("<h1>Welcome to Users endpoint</h1>");
     }
+
+//    @ResponseStatus(HttpStatus.OK)
+//    @GetMapping("/")
+//    public List<Users> findAllUsers(){
+//        return usersService.findAllUsers();
+//    }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")

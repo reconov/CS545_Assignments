@@ -12,7 +12,7 @@ public class MyUserDetails implements UserDetails {
     private String username;
 
     public MyUserDetails(String thatUsername) {
-        System.out.println(thatUsername);
+        System.out.println("From userDetails : " + thatUsername);
         this.username = thatUsername;
     }
     public MyUserDetails() { }

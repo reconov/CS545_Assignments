@@ -78,8 +78,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Users findUserByEmail(String email) {
-        return usersRepo.findUsersByEmail(email);
+    public Users findUserByEmail(String username) {
+        return usersRepo.findUsersByUsername(username);
     }
 
 }
