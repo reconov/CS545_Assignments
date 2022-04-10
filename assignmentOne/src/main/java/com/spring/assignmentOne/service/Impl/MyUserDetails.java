@@ -1,31 +1,43 @@
 package com.spring.assignmentOne.service.Impl;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.spring.assignmentOne.domain.Role;
+import com.spring.assignmentOne.domain.Users;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
+//@ToString
 public class MyUserDetails implements UserDetails {
 
     private String username;
+    @JsonIgnore
+    private String password;
+    private List<Role> roles;
 
-    public MyUserDetails(String thatUsername) {
-        System.out.println("From userDetails : " + thatUsername);
-        this.username = thatUsername;
+    public MyUserDetails(Users user) {
+        System.out.println("From userDetails : " + user);
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
     }
-    public MyUserDetails() { }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ADMIN"));
+        return roles.stream()
+                .map(role -> new SimpleGrantedAuthority(role.getRole()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public String getPassword() {
-        return "pass";
+        return password;
     }
 
     @Override
@@ -53,10 +65,4 @@ public class MyUserDetails implements UserDetails {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "MyUserDetails{" +
-                "username='" + username + '\'' +
-                '}';
-    }
 }

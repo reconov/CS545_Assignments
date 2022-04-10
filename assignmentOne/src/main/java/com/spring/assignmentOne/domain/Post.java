@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,10 +25,12 @@ public class Post {
     @ManyToOne()
     @JoinColumn()
     @JsonBackReference()
+    @ToString.Exclude
     private Users user;
 
     @OneToMany( mappedBy = "post", cascade = CascadeType.ALL )
     @JsonManagedReference
+    @ToString.Exclude
     private List<Comment> comments;
 
 }

@@ -139,34 +139,34 @@
 -- #################################################################
 -- use this when dealing with new db server
 
-INSERT INTO users (id, username, first_name, last_name, password, enabled)
-VALUES (1, 'a', 'umur', 'inan', '{noop}a', true);
-INSERT INTO users (id, username, first_name, last_name, password, enabled)
-VALUES (2, 'b', 'john', 'doe', '{noop}a', true);
-INSERT INTO users (id, username, first_name, last_name, password, enabled)
-VALUES (3, 'c', 'Dean', 'Altarawneh', '{noop}a', true);
-
-
-
-INSERT INTO role (id, role)
-VALUES (1, 'ADMIN');
-INSERT INTO role (id, role)
-VALUES (2, 'CLIENT');
-
-
-INSERT INTO users_roles (users_id, roles_id)
-VALUES (1, 1);
-INSERT INTO users_roles (users_id, roles_id)
-VALUES (2, 2);
-INSERT INTO users_roles (users_id, roles_id)
-VALUES (3, 2);
-
-INSERT INTO post (id, content, title, user_id)
-VALUES (1, 'iPhonesjfkjskajlkasjdf;asjdf', 'some title', 1);
-INSERT INTO post (id, content, title, user_id)
-VALUES (2, 'iPasjfkjskajlkasjdf;asjdf', 'some title', 1);
-INSERT INTO post (id, content, title, user_id)
-VALUES (3, 'sjfkjskajlkasjdf;asjdf', 'some title', 1);
+# INSERT INTO users (id, username, first_name, last_name, password, enabled)
+# VALUES (1, 'a', 'Abraham', 'Bisrat', '{noop}a', true);
+# INSERT INTO users (id, username, first_name, last_name, password, enabled)
+# VALUES (2, 'b', 'john', 'doe', '{noop}a', true);
+# INSERT INTO users (id, username, first_name, last_name, password, enabled)
+# VALUES (3, 'c', 'Mr', 'X', '{noop}a', true);
+#
+#
+#
+# INSERT INTO role (id, role)
+# VALUES (1, 'ADMIN');
+# INSERT INTO role (id, role)
+# VALUES (2, 'CLIENT');
+#
+#
+# INSERT INTO users_roles (users_id, roles_id)
+# VALUES (1, 1);
+# INSERT INTO users_roles (users_id, roles_id)
+# VALUES (2, 2);
+# INSERT INTO users_roles (users_id, roles_id)
+# VALUES (3, 2);
+#
+# INSERT INTO post (id, content, title, user_id)
+# VALUES (1, 'iPhonesjfkjskajlkasjdf;asjdf', 'some title', 1);
+# INSERT INTO post (id, content, title, user_id)
+# VALUES (2, 'iPasjfkjskajlkasjdf;asjdf', 'some title', 1);
+# INSERT INTO post (id, content, title, user_id)
+# VALUES (3, 'sjfkjskajlkasjdf;asjdf', 'some title', 1);
 
 
 SELECT * FROM users;
