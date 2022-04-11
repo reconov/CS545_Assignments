@@ -1,12 +1,12 @@
 package com.spring.assignmentOne.service;
 
-import com.spring.assignmentOne.domain.dto.request.LoginRequest;
-import com.spring.assignmentOne.domain.dto.response.LoginResponse;
+import com.spring.assignmentOne.domain.dto.request.AuthenticationRequest;
+import com.spring.assignmentOne.domain.dto.response.AuthenticationResponse;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface AuthService {
 
-    LoginResponse login(LoginRequest loginRequest);
+    AuthenticationResponse login(AuthenticationRequest loginRequest);
 
 }

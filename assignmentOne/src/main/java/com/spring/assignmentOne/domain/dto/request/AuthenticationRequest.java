@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class LoginRequest {
-    private String email;
+public class AuthenticationRequest {
+    private String username;
     private String password;
 }

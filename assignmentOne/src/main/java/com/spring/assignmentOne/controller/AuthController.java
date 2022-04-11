@@ -1,9 +1,15 @@
 package com.spring.assignmentOne.controller;
 
-import com.spring.assignmentOne.domain.dto.request.LoginRequest;
-import com.spring.assignmentOne.service.AuthService;
+import com.spring.assignmentOne.domain.dto.request.AuthenticationRequest;
+import com.spring.assignmentOne.domain.dto.response.AuthenticationResponse;
+import com.spring.assignmentOne.service.MyUserDetailsService;
+import com.spring.assignmentOne.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,15 +17,31 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class AuthController {
 
-    private final AuthService authService;
+    @Autowired
+    private AuthenticationManager authManager;
 
-    public AuthController(AuthService authService) {
-        this.authService = authService;
-    }
+    @Autowired
+    private MyUserDetailsService myUserDetailsService;
+
+    @Autowired
+    private JwtUtil jwtTokenUtil;
 
     @PostMapping
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-        var loginResponse = authService.login(loginRequest);
-        return ResponseEntity.ok().body(loginResponse);
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authRequest)
+            throws Exception {
+        try {
+            authManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            authRequest.getUsername(),
+                            authRequest.getPassword()
+                    ));
+        } catch (BadCredentialsException e) {
+            throw new Exception("Incorrect Credential details ", e);
+        }
+
+        final UserDetails userDetails =
+                myUserDetailsService.loadUserByUsername(authRequest.getUsername());
+        final String authToken = jwtTokenUtil.generateToken(userDetails);
+        return ResponseEntity.ok().body( new AuthenticationResponse(authToken));
     }
 }

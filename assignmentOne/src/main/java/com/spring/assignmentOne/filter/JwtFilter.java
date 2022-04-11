@@ -1,6 +1,5 @@
 package com.spring.assignmentOne.filter;
 
-import com.spring.assignmentOne.utils.JwtTokenUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

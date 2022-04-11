@@ -2,6 +2,7 @@ package com.spring.assignmentOne.security.config;
 
 import com.spring.assignmentOne.filter.JwtFilter;
 import com.spring.assignmentOne.service.Impl.MyUserDetails;
+import com.spring.assignmentOne.service.MyUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,42 +33,38 @@ import java.util.Collection;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class securityConfiguration extends WebSecurityConfigurerAdapter {
+public class securityConfig extends WebSecurityConfigurerAdapter {
+
+//    @Autowired
+//    DataSource dataSource;
 
     @Autowired
-    DataSource dataSource;
+    private MyUserDetailsService myUserDetailsService;
 
     @Override
     public void configure(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .usersByUsernameQuery(
-                        "select username, password, enabled "
-                        + "from users where username = ?")
-                .authoritiesByUsernameQuery(
-                        "select username, role from users_roles ur "
-                        + "right join users u on ur.users_id = u.id "
-                        + "right join role r on r.id =  ur.roles_id "
-                        + "where u.username = ?");
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .usersByUsernameQuery(
+//                        "select username, password, enabled "
+//                        + "from users where username = ?")
+//                .authoritiesByUsernameQuery(
+//                        "select username, role from users_roles ur "
+//                        + "right join users u on ur.users_id = u.id "
+//                        + "right join role r on r.id =  ur.roles_id "
+//                        + "where u.username = ?");
+        auth.userDetailsService(myUserDetailsService);
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
+        http.csrf().disable()
+                .authorizeHttpRequests()
                 .antMatchers("/admin").hasAuthority("ADMIN")
                 .antMatchers("/users").hasAnyAuthority("ADMIN", "CLIENT")
-                .and().formLogin();
+                .anyRequest().authenticated();
     }
-
-//    @Bean(name="myPasswordEncoder")
-//    public PasswordEncoder getPasswordEncoder() {
-//        DelegatingPasswordEncoder delPasswordEncoder=  (DelegatingPasswordEncoder)PasswordEncoderFactories.createDelegatingPasswordEncoder();
-//        BCryptPasswordEncoder bcryptPasswordEncoder =new BCryptPasswordEncoder();
-//        delPasswordEncoder.setDefaultPasswordEncoderForMatches(bcryptPasswordEncoder);
-//        return delPasswordEncoder;
-//    }
-
 
     @Bean
     @Primary
@@ -75,8 +72,8 @@ public class securityConfiguration extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-    @Bean
     @Override
+    @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }

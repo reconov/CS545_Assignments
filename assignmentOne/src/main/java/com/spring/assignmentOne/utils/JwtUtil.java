@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Component
-public class JwtTokenUtil implements Serializable {
+public class JwtUtil implements Serializable {
 
     private static final long serialVersionUID = -2550185165626007488L;
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
@@ -23,7 +23,6 @@ public class JwtTokenUtil implements Serializable {
 
 
     public String generateToken(UserDetails userDetails){
-        // this value is fetched by username from db
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims, userDetails.getUsername());
     }
