@@ -48,7 +48,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 System.out.println("Token has outlived its usefulness ");
             }
         } else {
-            logger.warn("JWT Token does not begin with Bearer String ");
+            System.out.println("JWT Token does not begin with Bearer String ");
         }
 
         // After token has been validated
