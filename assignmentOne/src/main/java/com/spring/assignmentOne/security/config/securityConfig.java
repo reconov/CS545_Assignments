@@ -39,7 +39,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 //    DataSource dataSource;
 
     @Autowired
-    private MyUserDetailsService myUserDetailsService;
+    private UserDetailsService userDetailsService;
 
     @Override
     public void configure(AuthenticationManagerBuilder auth)
@@ -54,7 +54,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 //                        + "right join users u on ur.users_id = u.id "
 //                        + "right join role r on r.id =  ur.roles_id "
 //                        + "where u.username = ?");
-        auth.userDetailsService(myUserDetailsService);
+        auth.userDetailsService(userDetailsService);
     }
 
     @Override
