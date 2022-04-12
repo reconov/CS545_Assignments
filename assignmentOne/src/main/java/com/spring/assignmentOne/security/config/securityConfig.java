@@ -1,5 +1,6 @@
 package com.spring.assignmentOne.security.config;
 
+import com.spring.assignmentOne.config.JwtAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -20,10 +22,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class securityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    DataSource dataSource;
     @Autowired
-    private AuthenticationManager authenticationManager;
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+    @Autowired
+    private UserDetailsService jwtUserDetailsService;
+
+
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -31,16 +36,6 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth)
             throws Exception {
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .usersByUsernameQuery(
-//                        "select username, password, enabled "
-//                        + "from users where username = ?")
-//                .authoritiesByUsernameQuery(
-//                        "select username, role from users_roles ur "
-//                        + "right join users u on ur.users_id = u.id "
-//                        + "right join role r on r.id =  ur.roles_id "
-//                        + "where u.username = ?");
         auth.userDetailsService(userDetailsService);
     }
 
@@ -60,10 +55,15 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-//    @Bean (name = BeanIds.AUTHENTICATION_MANAGER)
-//    @Override public
-//    AuthenticationManager Authenticationmanagerbean () throws Exception {
-//        return super.authenticationConfiguration();
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
 //    }
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
 }
