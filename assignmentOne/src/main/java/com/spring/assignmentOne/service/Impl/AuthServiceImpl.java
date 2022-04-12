@@ -4,7 +4,6 @@ import com.spring.assignmentOne.domain.dto.request.AuthenticationRequest;
 import com.spring.assignmentOne.domain.dto.response.AuthenticationResponse;
 import com.spring.assignmentOne.service.AuthService;
 import com.spring.assignmentOne.utils.JwtUtil;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,13 +13,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
 
+    @Autowired
     private AuthenticationManager authenticationManager;
-    private final UserDetailsService userDetailsService;
-    private final JwtUtil jwtUtil;
-
+    private UserDetailsService userDetailsService;
+    private JwtUtil jwtUtil;
 
     @Override
     public AuthenticationResponse login(AuthenticationRequest loginRequest){

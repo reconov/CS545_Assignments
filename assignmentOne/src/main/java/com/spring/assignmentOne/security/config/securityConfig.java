@@ -1,34 +1,19 @@
 package com.spring.assignmentOne.security.config;
 
-import com.spring.assignmentOne.filter.JwtFilter;
-import com.spring.assignmentOne.service.Impl.MyUserDetails;
-import com.spring.assignmentOne.service.MyUserDetailsService;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import javax.sql.DataSource;
-import java.util.Collection;
 
 @Configuration
 @EnableWebSecurity
@@ -37,6 +22,8 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 
 //    @Autowired
 //    DataSource dataSource;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -63,6 +50,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeHttpRequests()
                 .antMatchers("/admin").hasAuthority("ADMIN")
                 .antMatchers("/users").hasAnyAuthority("ADMIN", "CLIENT")
+                .antMatchers("/auth").permitAll()
                 .anyRequest().authenticated();
     }
 
@@ -72,10 +60,10 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
-    @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+//    @Bean (name = BeanIds.AUTHENTICATION_MANAGER)
+//    @Override public
+//    AuthenticationManager Authenticationmanagerbean () throws Exception {
+//        return super.authenticationConfiguration();
+//    }
 
 }

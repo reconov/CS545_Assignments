@@ -3,13 +3,11 @@ spring:
     name: Lab2
   datasource:
     password: ${DB_PASSWORD}
-#    url: jdbc:mysql://localhost:3306/waa_assignmentDB
     url: jdbc:mysql://172.17.18.6:3306/waaAssigDB
     username: ${DB_USER}
   jpa:
     hibernate:
       ddl-auto: update
-#      ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -25,3 +23,5 @@ server:
 
 jwt:
   secret: 'someReallyComplicatedStringFromFileSomewhere'
+
+#    url: jdbc:mysql://localhost:3306/waa_assignmentDB

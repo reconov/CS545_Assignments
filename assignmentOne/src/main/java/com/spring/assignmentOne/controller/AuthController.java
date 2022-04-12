@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class AuthController {
 
+    @Autowired
     AuthService authService;
 
     @PostMapping
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authRequest)
             throws Exception {
+        System.out.println("Request Accepted : " + authRequest);
      return ResponseEntity.ok().body(authService.login(authRequest));
     }
 
