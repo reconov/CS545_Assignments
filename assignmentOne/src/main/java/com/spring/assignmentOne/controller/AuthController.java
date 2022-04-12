@@ -3,6 +3,7 @@ package com.spring.assignmentOne.controller;
 import com.spring.assignmentOne.domain.dto.request.AuthenticationRequest;
 import com.spring.assignmentOne.domain.dto.response.AuthenticationResponse;
 import com.spring.assignmentOne.service.AuthService;
+import com.spring.assignmentOne.service.JwtUserDetailsService;
 import com.spring.assignmentOne.service.MyUserDetailsService;
 import com.spring.assignmentOne.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,20 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     @Autowired
-    AuthService authService;
+    private JwtUtil jwtTokenUtil;
+
+    @Autowired
+    private AuthenticationManager authManager;
+
+
+    @Autowired
+    private JwtUserDetailsService userDetailsService;
 
     @PostMapping
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authRequest)
             throws Exception {
         System.out.println("Request Accepted : " + authRequest);
-     return ResponseEntity.ok().body(authService.login(authRequest));
+        return ResponseEntity.ok().body(userDetailsService(authRequest));
     }
 
 }
