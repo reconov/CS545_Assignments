@@ -2,14 +2,14 @@ spring:
   application:
     name: Lab2
   datasource:
-#    password: ${DB_PASSWORD}
-#    username: ${DB_USER}
+    #    password: ${DB_PASSWORD}
+    #    username: ${DB_USER}
     url: jdbc:mysql://172.17.18.6:3306/waaAssigDB
     username: reconov
     password: reconov
-#    url: jdbc:mysql://localhost:3306/waa_assignmentDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-#    username: 'root'
-#    password: 'password'
+  #    url: jdbc:mysql://localhost:3306/waa_assignmentDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  #    username: 'root'
+  #    password: 'password'
   jpa:
     hibernate:
       ddl-auto: update
