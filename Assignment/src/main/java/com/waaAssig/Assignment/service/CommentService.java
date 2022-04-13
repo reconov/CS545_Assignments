@@ -1,11 +1,11 @@
-package com.spring.assignmentOne.service;
+package com.waaAssig.Assignment.service;
 
-import com.spring.assignmentOne.domain.Comment;
+import com.waaAssig.Assignment.domain.Comment;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface CommentService {
 
-    void addCommentByPostId(Long id, Comment c);
+    void addCommentByPostId(long id, Comment c);
 
 }

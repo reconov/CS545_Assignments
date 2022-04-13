@@ -1,6 +1,6 @@
-package com.spring.assignmentOne.dao;
+package com.waaAssig.Assignment.dao;
 
-import com.spring.assignmentOne.model.DAOUser;
+import com.waaAssig.Assignment.model.DAOUser;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

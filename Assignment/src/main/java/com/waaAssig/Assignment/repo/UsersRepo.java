@@ -1,6 +1,6 @@
-package com.spring.assignmentOne.repo;
+package com.waaAssig.Assignment.repo;
 
-import com.spring.assignmentOne.domain.Users;
+import com.waaAssig.Assignment.domain.Users;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

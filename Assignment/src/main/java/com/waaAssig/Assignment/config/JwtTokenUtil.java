@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.config;
+package com.waaAssig.Assignment.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

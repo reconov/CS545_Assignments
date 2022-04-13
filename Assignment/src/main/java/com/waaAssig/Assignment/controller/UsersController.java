@@ -1,11 +1,11 @@
-package com.spring.assignmentOne.controller;
+package com.waaAssig.Assignment.controller;
 
 
-import com.spring.assignmentOne.aspect.logger.ExcutionTime;
-import com.spring.assignmentOne.domain.Comment;
-import com.spring.assignmentOne.domain.Post;
-import com.spring.assignmentOne.domain.Users;
-import com.spring.assignmentOne.service.UsersService;
+import com.waaAssig.Assignment.aspect.logger.ExcutionTime;
+import com.waaAssig.Assignment.domain.Comment;
+import com.waaAssig.Assignment.domain.Post;
+import com.waaAssig.Assignment.domain.Users;
+import com.waaAssig.Assignment.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

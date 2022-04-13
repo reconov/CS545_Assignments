@@ -1,15 +1,12 @@
-package com.spring.assignmentOne.service.Impl;
+package com.waaAssig.Assignment.service.Impl;
 
-import com.spring.assignmentOne.domain.Post;
-import com.spring.assignmentOne.domain.dto.PostDto;
-import com.spring.assignmentOne.repo.PostRepo;
-import com.spring.assignmentOne.service.PostService;
-import org.modelmapper.ModelMapper;
+import com.waaAssig.Assignment.domain.Post;
+import com.waaAssig.Assignment.repo.PostRepo;
+import com.waaAssig.Assignment.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {

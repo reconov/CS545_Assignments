@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.domain.dto;
+package com.waaAssig.Assignment.domain.dto;
 
 import lombok.Data;
 

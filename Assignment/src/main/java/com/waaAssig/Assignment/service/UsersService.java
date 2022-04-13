@@ -1,8 +1,8 @@
-package com.spring.assignmentOne.service;
+package com.waaAssig.Assignment.service;
 
-import com.spring.assignmentOne.domain.Comment;
-import com.spring.assignmentOne.domain.Post;
-import com.spring.assignmentOne.domain.Users;
+import com.waaAssig.Assignment.domain.Comment;
+import com.waaAssig.Assignment.domain.Post;
+import com.waaAssig.Assignment.domain.Users;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

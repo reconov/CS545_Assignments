@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.aspect.logger.domain;
+package com.waaAssig.Assignment.aspect.logger.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

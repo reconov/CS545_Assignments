@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.controller;
+package com.waaAssig.Assignment.controller;
 
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.aspect.logger.service;
+package com.waaAssig.Assignment.aspect.logger.service;
 
 import org.aspectj.lang.JoinPoint;
 import org.springframework.stereotype.Service;

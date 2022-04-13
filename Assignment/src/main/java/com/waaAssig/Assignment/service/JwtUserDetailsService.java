@@ -1,9 +1,10 @@
-package com.spring.assignmentOne.service;
+package com.waaAssig.Assignment.service;
 
-import com.spring.assignmentOne.dao.UserDao;
-import com.spring.assignmentOne.model.DAOUser;
-import com.spring.assignmentOne.model.UserDTO;
+import com.waaAssig.Assignment.dao.UserDao;
+import com.waaAssig.Assignment.model.DAOUser;
+import com.waaAssig.Assignment.model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +20,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Autowired
 	private UserDao userDao;
 
-	@Autowired
+	@Autowired @Lazy
 	private PasswordEncoder bcryptEncoder;
 
 	@Override

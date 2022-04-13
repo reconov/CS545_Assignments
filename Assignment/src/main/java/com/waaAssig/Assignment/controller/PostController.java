@@ -1,8 +1,7 @@
-package com.spring.assignmentOne.controller;
+package com.waaAssig.Assignment.controller;
 
-import com.spring.assignmentOne.domain.Post;
-import com.spring.assignmentOne.domain.dto.PostDto;
-import com.spring.assignmentOne.service.PostService;
+import com.waaAssig.Assignment.domain.Post;
+import com.waaAssig.Assignment.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

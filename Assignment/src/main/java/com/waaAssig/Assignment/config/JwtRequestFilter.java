@@ -1,8 +1,12 @@
-package com.spring.assignmentOne.config;
+package com.waaAssig.Assignment.config;
 
-import com.spring.assignmentOne.service.JwtUserDetailsService;
+import com.waaAssig.Assignment.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.Marker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
+@Slf4j
 public class JwtRequestFilter extends OncePerRequestFilter {
 
 	@Autowired
@@ -45,7 +50,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 				System.out.println("JWT Token has expired");
 			}
 		} else {
-			logger.warn("JWT Token does not begin with Bearer String");
+			System.out.println("JWT Token does not begin with Bearer String");
 		}
 
 		// Once we get the token validate it.

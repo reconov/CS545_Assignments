@@ -1,12 +1,12 @@
-package com.spring.assignmentOne.service.Impl;
+package com.waaAssig.Assignment.service.Impl;
 
-import com.spring.assignmentOne.domain.Comment;
-import com.spring.assignmentOne.domain.Post;
-import com.spring.assignmentOne.domain.Users;
-import com.spring.assignmentOne.repo.CommentRepo;
-import com.spring.assignmentOne.repo.PostRepo;
-import com.spring.assignmentOne.repo.UsersRepo;
-import com.spring.assignmentOne.service.UsersService;
+import com.waaAssig.Assignment.domain.Comment;
+import com.waaAssig.Assignment.domain.Post;
+import com.waaAssig.Assignment.domain.Users;
+import com.waaAssig.Assignment.repo.CommentRepo;
+import com.waaAssig.Assignment.repo.PostRepo;
+import com.waaAssig.Assignment.repo.UsersRepo;
+import com.waaAssig.Assignment.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

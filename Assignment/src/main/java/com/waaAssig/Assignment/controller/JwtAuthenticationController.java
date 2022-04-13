@@ -1,10 +1,10 @@
-package com.spring.assignmentOne.controller;
+package com.waaAssig.Assignment.controller;
 
-import com.spring.assignmentOne.config.JwtTokenUtil;
-import com.spring.assignmentOne.model.JwtRequest;
-import com.spring.assignmentOne.model.JwtResponse;
-import com.spring.assignmentOne.model.UserDTO;
-import com.spring.assignmentOne.service.JwtUserDetailsService;
+import com.waaAssig.Assignment.config.JwtTokenUtil;
+import com.waaAssig.Assignment.model.JwtRequest;
+import com.waaAssig.Assignment.model.JwtResponse;
+import com.waaAssig.Assignment.model.UserDTO;
+import com.waaAssig.Assignment.service.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,7 +28,8 @@ public class JwtAuthenticationController {
 	private JwtUserDetailsService userDetailsService;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
+			throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 

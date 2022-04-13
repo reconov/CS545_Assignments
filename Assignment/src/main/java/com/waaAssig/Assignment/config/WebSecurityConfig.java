@@ -1,9 +1,14 @@
-package com.spring.assignmentOne.config;
+package com.waaAssig.Assignment.config;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InjectionPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -13,18 +18,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@Slf4j
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-	@Autowired
+	@Autowired @Lazy // avoid circular reference, load them lazily
 	private UserDetailsService jwtUserDetailsService;
 
 	@Autowired
@@ -51,7 +57,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		// We don't need CSRF for this example
 		httpSecurity.csrf().disable()
 				// dont authenticate this particular request
 				.authorizeRequests().antMatchers("/authenticate", "/register").permitAll().
@@ -65,4 +70,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Add a filter to validate the tokens with every request
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
+
+//	// logger
+//	@Bean @Lazy
+//	@Scope("prototype")
+//	public Logger produceLogger(InjectionPoint injectionPoint) {
+//		Class<?> classOnWired = injectionPoint.getMember().getDeclaringClass();
+//		return LoggerFactory.getLogger(classOnWired);
+//	}
+
 }

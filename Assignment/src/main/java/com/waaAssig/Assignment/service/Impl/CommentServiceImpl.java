@@ -1,9 +1,9 @@
-package com.spring.assignmentOne.service.Impl;
+package com.waaAssig.Assignment.service.Impl;
 
-import com.spring.assignmentOne.domain.Comment;
-import com.spring.assignmentOne.repo.CommentRepo;
-import com.spring.assignmentOne.repo.PostRepo;
-import com.spring.assignmentOne.service.CommentService;
+import com.waaAssig.Assignment.domain.Comment;
+import com.waaAssig.Assignment.repo.CommentRepo;
+import com.waaAssig.Assignment.repo.PostRepo;
+import com.waaAssig.Assignment.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class CommentServiceImpl implements CommentService {
     PostRepo postRepo;
 
     @Override
-    public void addCommentByPostId(Long id, Comment newComment) {
+    public void addCommentByPostId(long id, Comment newComment) {
         if(postRepo.findById(id) != null){ // should reduce calling twice
             newComment.setPost(postRepo.findById(id).orElse(null));
             commentRepo.save(newComment);

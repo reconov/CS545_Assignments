@@ -1,7 +1,7 @@
-package com.spring.assignmentOne.aspect.logger.service;
+package com.waaAssig.Assignment.aspect.logger.service;
 
-import com.spring.assignmentOne.aspect.logger.domain.exception;
-import com.spring.assignmentOne.aspect.logger.repo.exceptionRepo;
+import com.waaAssig.Assignment.aspect.logger.domain.exception;
+import com.waaAssig.Assignment.aspect.logger.repo.exceptionRepo;
 import org.aspectj.lang.JoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

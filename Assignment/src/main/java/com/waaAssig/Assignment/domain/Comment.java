@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.domain;
+package com.waaAssig.Assignment.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;

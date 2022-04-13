@@ -1,7 +1,6 @@
-package com.spring.assignmentOne.service;
+package com.waaAssig.Assignment.service;
 
-import com.spring.assignmentOne.domain.Post;
-import com.spring.assignmentOne.domain.dto.PostDto;
+import com.waaAssig.Assignment.domain.Post;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

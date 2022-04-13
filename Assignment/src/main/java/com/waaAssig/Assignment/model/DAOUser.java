@@ -1,4 +1,4 @@
-package com.spring.assignmentOne.model;
+package com.waaAssig.Assignment.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

@@ -1,7 +1,7 @@
-package com.spring.assignmentOne.aspect.logger.service;
+package com.waaAssig.Assignment.aspect.logger.service;
 
-import com.spring.assignmentOne.aspect.logger.domain.Logger;
-import com.spring.assignmentOne.aspect.logger.repo.LoggerRepo;
+import com.waaAssig.Assignment.aspect.logger.domain.Logger;
+import com.waaAssig.Assignment.aspect.logger.repo.LoggerRepo;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

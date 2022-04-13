@@ -2,11 +2,11 @@ spring:
   application:
     name: Lab2
   datasource:
-    #    password: ${DB_PASSWORD}
-    #    username: ${DB_USER}
-    url: jdbc:mysql://172.17.18.6:3306/waaAssigDB
+    url: jdbc:mysql://172.17.18.6:3306/waaAssigDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: reconov
     password: reconov
+#    password: ${DB_PASSWORD}
+#    username: ${DB_USER}
   #    url: jdbc:mysql://localhost:3306/waa_assignmentDB?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
   #    username: 'root'
   #    password: 'password'
@@ -25,6 +25,8 @@ spring:
       mode: always
   main:
     banner-mode: "off"
+#    allow-circular-references: true
+
 server:
   port: 4000
 
@@ -34,3 +36,4 @@ jwt:
 #logging:
 #  pattern:
 #    console:
+
